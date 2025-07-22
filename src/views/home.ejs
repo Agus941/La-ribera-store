@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <title>Bienvenidos a MercadoLiebre</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+        <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include('./partials/header.ejs')%>
+    
+      <section class="banner">
+        <img src="/images/banner.jpg" alt="Promoción principal">
+      </section>
+    <main>
+        <section class="last-visit">
+            <h3>Basado en tu última visita</h3>
+            
+            <div class="products">
+                <% data.forEach((elemento,index)=>{    %>
+                <article>
+                    <img src="/images/<%= elemento.imagen %>" alt="Cafetera" class="product_img">
+                    <div class="main-article">
+                        <i class="fas fa-truck"></i>
+                        <p class="price"><%= elemento.precio%></p>
+                        <p class="discount">40% off</p>
+                        <h4 class="description"><%= elemento.nombre %></h4>
+                       
+                    </div>
+                </article>
+                <%   });   %>
+                
+            </div>
+        </section>
+        <section class="offers">
+            <h3>Ofertas</h3>
+            <div class="products">
+                <% data.forEach((elemento,index)=>{    %>
+                <article>
+                    <img src="/images/<%= elemento.imagen %>" alt="Cafetera" class="product_img">
+                    <div class="main-article">
+                        <i class="fas fa-truck"></i>
+                        <p class="price"><%= elemento.precio%></p>
+                        <p class="discount">40% off</p>
+                        <h4 class="description"><%= elemento.nombre %></h4>                     
+                    </div>
+                </article>
+                <%   });   %>   
+            </div>  
+        </section>
+    </main>
+        <%- include('./partials/footer.ejs')%>
+</body>
+</html>
